@@ -1,6 +1,9 @@
 # forms.py
 
 from django import forms
+from .models import UploadedFile
 
-class MyForm(forms.Form):
-    uploaded_file = forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple': True}), label='Select a file')
+class FileUploadForm(forms.ModelForm):
+    class Meta:
+        model = UploadedFile
+        fields = ['file']

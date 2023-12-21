@@ -13,7 +13,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700;800&display=swap" rel="stylesheet" />
   </head>
   <body>
-    <input type="file" name="uploaded_file" id="uploaded_file">
-    <input type="button" value="Save File">
+      <h2>Upload a File</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Upload</button>
+        </form>
   </body>
 </html>
